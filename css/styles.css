@@ -1,0 +1,61 @@
+
+.position-sticky{
+  position: sticky;
+  top: 0;
+  z-index: 999;
+}
+
+.header{
+  background-color: black;
+  height: 80px;
+
+}
+
+.logo-div{
+  display: flex;
+  justify-content: center;
+  margin-top: -80px;
+}
+
+.top-matter{
+  transform: scale(.7);
+
+}
+
+.left-items{
+  display: flex;
+  justify-content: left;
+  margin-top: 0px;
+
+}
+
+.right-items{
+  display: flex;
+  justify-content: right;
+  margin-top: -80px;
+}
+
+.headline{
+  font-family: bodoni-urw, serif;
+  font-size: 40px;
+  font-weight: 600;
+  font-style: normal;
+  margin-top: 80px;
+  text-align: center;
+}
+
+h3{
+  font-family: bodoni-urw, serif;
+  font-weight: 400;
+  font-style: normal;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.main-text{
+  text-align: left;
+  font-family: lora,serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 18px;
+}
