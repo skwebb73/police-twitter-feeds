@@ -8,6 +8,7 @@ var raceTotals = [];
 var race = [];
 var finalCodes = [];
 var mediaUrl = [];
+var finalCodes2 =[];
 
 $(document).ready(function(){
   console.log("ready");
@@ -17,6 +18,7 @@ $(document).ready(function(){
   });
 
 function loadData(){
+  console.log("loadData");
   $.getJSON("../byCounty.json", function (byCounty){
     console.log(byCounty);
     parseData(byCounty);
@@ -24,6 +26,7 @@ function loadData(){
 }
 
 function parseData(byCounty){
+  console.log("parseData");
   //var html ="";
   $.each(byCounty, function(index){
     console.log(byCounty[index].black);
@@ -39,9 +42,10 @@ function parseData(byCounty){
 }
 
 function buildCharts(){
-
-  var chart = c3.generate({
-    data: {
+  console.log("buildCharts");
+  var charttest = c3.generate({
+      bindto: '#chart3',
+     data: {
         json: {
           "White": white,
           "Black": black,
@@ -74,6 +78,7 @@ function buildCharts(){
 //Race Totals:
 
 function loadData2(){
+  console.log("loadData2");
   $.getJSON("../race-totals.json", function (raceTotals){
     console.log(raceTotals);
     parseData2(raceTotals);
@@ -91,6 +96,7 @@ function parseData2(raceTotals){
 
 
 function buildCharts2(){
+  console.log("buildCharts2");
   const chart = Highcharts.chart('container', {
       chart: {
           plotBackgroundColor: null,
@@ -150,59 +156,91 @@ function buildCharts2(){
 console.log("this worked");
 
 function loadData3(){
+  console.log("loadData3");
   $.getJSON("../finalcodes.json", function (finalCodes){
     //console.log(finalCodes);
+    console.log(finalCodes)
     parseData3(finalCodes);
+
   })
 }
-
-
+var tempCount =0;
 function parseData3(finalCodes){
+  console.log("parseData3");
   var htmlThumbs='';
 
   $.each(finalCodes, function(index){
     //console.log(finalCodes[index].raceCodes);
-    finalCodes.push(finalCodes[index]);
+    finalCodes2.push(finalCodes[index]);
     //race.push(raceTotals[index].race);
     mediaUrl.push(finalCodes[index].media_url);
     //console.log(mediaUrl);
-
-
+    if(index % 7){
+      tempCount ++
     htmlThumbs += '<img class="thumbsClass" src="' + finalCodes[index].media_url + '" width="100" height="100" alt="portrait"/>';
+    }
+
+
+
   });
+console.log(tempCount);
+
 
   $("#thumbs").append(htmlThumbs);
+  console.log(finalCodes2);
+console.log("pre dataTable()");
+  $('#tableId').DataTable({
+          data: finalCodes2,
+          columns: [
+            {"data": 'date', title: 'Date'},
+            {"data": 'account', title: 'Account'},
+            {"data": 'text', title: 'Text of Tweet'},
+            {"data": 'favoriteCount', title: 'Number of Likes'},
+            {"data": 'retweetCount', title: 'Number of Retweets'},
+            {"data": 'mediaType', title: "Type of Image"},
+            {"data": 'mediaUrl', title: 'Link to Image'},
+            {"data": 'human', title: 'Human'},
+            {"data": 'humanCount', title: 'Number of Humans'},
+            {"data": 'type', title: "Image Type"},
+            {"data": 'raceCode', title: "Race Code"},
+            {"data": 'raceConfidence', title: "Race Confidence"},
+            {"data": 'gender', title: 'Gender Code'},
+            {"data": 'genderConfidence', title: 'Gender Confidence'},
+            {"data": 'comments', title: "Researcher Comments"},
+            {"data": 'county', title: "County Name"},
+            {"data": 'coder', title: "Researcher"},
+          ],
+          // columns: [
+          //   {title: 'date'},
+          //   {title: 'Example'},
+          //   {title: 'Example'},
+          //   {title: 'Example'},
+          //   {title: 'Example'},
+          //   {title: 'Example'},
+          //   {title: 'Example'},
+          //   {title: 'Example'},
+          //   {title: 'Example'},
+          //   {title: 'Example'},
+          //   {title: 'Example'},
+          //   {title: 'Example'},
+          //   {title: 'Example'},
+          //   {title: 'Example'},
+          //   {title: 'Example'},
+          //   {title: 'Example'},
+          //   {title: 'Example'},
+          // ],
+  });
 
 }
 
 
 
-$(document).ready(function () {
-    $('#tableId').DataTable({
-        data: finalCodes,
-        columns: [
-          {title: 'Example'},
-          {title: 'Example'},
-          {title: 'Example'},
-          {title: 'Example'},
-          {title: 'Example'},
-          {title: 'Example'},
-          {title: 'Example'},
-          {title: 'Example'},
-          {title: 'Example'},
-          {title: 'Example'},
-          {title: 'Example'},
-          {title: 'Example'},
-          {title: 'Example'},
-          {title: 'Example'},
-          {title: 'Example'},
-          {title: 'Example'},
-          {title: 'Example'},
-        ],
-    });
-});
 
-
+//$.ajax({
+//     dataType: "json",
+//     url: url,
+//     data: data,
+//     success: parseData
 
 
 
