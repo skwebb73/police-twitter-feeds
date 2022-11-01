@@ -14,6 +14,8 @@
     <link href="css/c3.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://use.typekit.net/yvb7tej.css">
     <link href="css/spritesheet.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.css">
+
     <link href="css/styles.css" rel="stylesheet">
 
 </head>
@@ -41,19 +43,25 @@
   <div class="row">
     <div class="col-md-2"></div>
     <div class="col-md-8 text-center">
-    <h1 class="headline">Black people are disproportionally represented among images posted on N.C. law enforcement twitter feeds</h1>
+    <h1 class="headline">N.C. law enforcement twitter feeds post more images of Black people than anyone else</h1>
+    <h2>This research was conducted as part of an independent study for the UNC Hussman School of Journalism and Media in Fall 2021.</h2>
     <h3>By Susie Webb</h3>
     <div class="main-text">
       <p>
-        Today’s social media landscape is ever evolving and changing as the world continues to advance technologically. The expansion and popularization of social media has caused many organizations, including police departments and sheriff offices, to expand the reach of their operations into the online world. </p>
-      <p>
-          Police departments and sheriff offices primarily use social media to post about missing persons, ask for suspect identification, give information on arrests, and generally boost publicity. But, in a world plagued by systemic racism with calls for police reform, to what extent do racial disparities exist in the posts North Carolina police departments and sheriff offices make on their Twitter feeds?
+        The purpose of this project is to primarily investigate whether there are disparities in the association of Black people with crime that could be derived from who is featured on law enforcement Twitter accounts.
       </p>
       <p>
-            The purpose of this project is to primarily investigate whether there are disparities in the association of Black people with crime that could be derived from who is featured on law enforcement Twitter accounts. This study investigates eight diverse police department and sheriff offices across the state of North Carolina to measure the racial demographics of who is featured on their Twitter feeds. Overwhelmingly Black people were disproportionally represented among the people who were represented in the Twitter feeds studied.
+        This study investigates eight diverse police department and sheriff offices across the state of North Carolina to measure the racial demographics of who is featured on their Twitter feeds.
+      </p>
+      <p>
+        Overwhelmingly Black people were disproportionally represented among the people who were represented in the Twitter feeds studied.
       </p>
       <div id="chart"></div>
       <div id="data"></div>
+      <div id="tableId"></div>
+
+      <div id="container" style="width:100%; height:400px;"></div>
+
     </div>
     </div>
     <div class="col-md-2">  </div>
@@ -66,6 +74,8 @@
   <script src="js/bootstrap.min.js"></script>
   <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
   <script src="https://d3js.org/d3.v5.min.js"></script>
+  <script src="https://code.highcharts.com/highcharts.js"></script>
+  <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.js"></script>
   <script src="js/c3.min.js"></script>
   <script src="js/main.js"></script>
 
