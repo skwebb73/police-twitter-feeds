@@ -1,9 +1,19 @@
-var black = [];
 var white = [];
+var black = [];
+var hispanicLatinx = [];
+var asianPacificIslander = [];
+var unidentifiable = [];
+var nativeAmerican = [];
+var raceTotals = [];
+var race = [];
+var finalCodes = [];
+var mediaUrl = [];
 
 $(document).ready(function(){
   console.log("ready");
   loadData();
+  loadData2();
+  loadData3();
   });
 
 function loadData(){
@@ -18,8 +28,12 @@ function parseData(byCounty){
   $.each(byCounty, function(index){
     console.log(byCounty[index].black);
     //html += "<h2>"
-    black.push(byCounty[index].black);
     white.push(byCounty[index].white);
+    black.push(byCounty[index].black);
+    hispanicLatinx.push(byCounty[index].hispanicLatinx);
+    asianPacificIslander.push(byCounty[index].asianPacificIslander);
+    unidentifiable.push(byCounty[index].unidentifiable);
+    nativeAmerican.push(byCounty[index].nativeAmerican);
   });
   buildCharts();
 }
@@ -29,9 +43,15 @@ function buildCharts(){
   var chart = c3.generate({
     data: {
         json: {
-          "Percent Black": black,
-          "Percent White": white
+          "White": white,
+          "Black": black,
+          "Hispanic/Latinx": hispanicLatinx,
+          "Asian/Pacific Islander": asianPacificIslander,
+          "Native American": nativeAmerican,
+          "Unidentifiable": unidentifiable
+
         },
+
         type: 'bar'
     },
     bar: {
@@ -40,12 +60,154 @@ function buildCharts(){
         }
         // or
         //width: 100 // this makes bar width 100px
-    }
+    },
+    axis: {
+      x: {
+          type: 'category',
+          categories: ['Allegheny', 'Asheville', 'Charlotte', 'Fayetteville', 'Henderson', 'Huntersville', 'Raleigh', 'Wilmington']
+      }
+  },
+});
+
+}
+
+//Race Totals:
+
+function loadData2(){
+  $.getJSON("../race-totals.json", function (raceTotals){
+    console.log(raceTotals);
+    parseData2(raceTotals);
+  })
+}
+
+function parseData2(raceTotals){
+  $.each(raceTotals, function(index){
+    console.log(raceTotals[index].total);
+    raceTotals.push(raceTotals[index].total);
+    race.push(raceTotals[index].race);
+  });
+  buildCharts2();
+}
+
+
+function buildCharts2(){
+  const chart = Highcharts.chart('container', {
+      chart: {
+          plotBackgroundColor: null,
+          plotBorderWidth: null,
+          plotShadow: false,
+          type: 'pie'
+      },
+      title: {
+          text: 'Browser market shares in May, 2020'
+      },
+      tooltip: {
+          pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+      },
+      accessibility: {
+          point: {
+              valueSuffix: '%'
+          }
+      },
+      plotOptions: {
+          pie: {
+              allowPointSelect: true,
+              cursor: 'pointer',
+              dataLabels: {
+                  enabled: true,
+                  format: '<b>{point.name}</b>: {point.percentage:.1f} %'
+              }
+          }
+      },
+      series: [{
+          name: 'Race',
+          colorByPoint: true,
+          data: [{
+              name: 'White',
+              y: 37.73,
+
+          }, {
+              name: 'Black',
+              y: 54.62
+          },  {
+              name: 'Hispanic/Latinx',
+              y: 4.37
+          }, {
+              name: 'Asian/Pacific Islander',
+              y: 0.26
+          }, {
+              name: 'Native American',
+              y: 0.08
+          },  {
+              name: 'Unidentifiable',
+              y: 2.93
+          }]
+      }]
+  });
+
+};
+
+console.log("this worked");
+
+function loadData3(){
+  $.getJSON("../finalcodes.json", function (finalCodes){
+    //console.log(finalCodes);
+    parseData3(finalCodes);
+  })
+}
+
+
+function parseData3(finalCodes){
+  var htmlThumbs='';
+
+  $.each(finalCodes, function(index){
+    //console.log(finalCodes[index].raceCodes);
+    finalCodes.push(finalCodes[index]);
+    //race.push(raceTotals[index].race);
+    mediaUrl.push(finalCodes[index].media_url);
+    //console.log(mediaUrl);
+
+
+    htmlThumbs += '<img class="thumbsClass" src="' + finalCodes[index].media_url + '" width="100" height="100" alt="portrait"/>';
+  });
+
+  $("#thumbs").append(htmlThumbs);
+
+}
+
+
+
+$(document).ready(function () {
+    $('#tableId').DataTable({
+        data: finalCodes,
+        columns: [
+          {title: 'Example'},
+          {title: 'Example'},
+          {title: 'Example'},
+          {title: 'Example'},
+          {title: 'Example'},
+          {title: 'Example'},
+          {title: 'Example'},
+          {title: 'Example'},
+          {title: 'Example'},
+          {title: 'Example'},
+          {title: 'Example'},
+          {title: 'Example'},
+          {title: 'Example'},
+          {title: 'Example'},
+          {title: 'Example'},
+          {title: 'Example'},
+          {title: 'Example'},
+        ],
+    });
 });
 
 
 
-}
+
+
+
+
 //
 // var filesToLoad = [];
 // filesToLoad.push("../race-totals.json", "../byCounty.json");
@@ -215,57 +377,3 @@ function buildCharts(){
 //                 data: [5, 7, 3]
 //             }]
 //         });
-
-const chart = Highcharts.chart('container', {
-    chart: {
-        plotBackgroundColor: null,
-        plotBorderWidth: null,
-        plotShadow: false,
-        type: 'pie'
-    },
-    title: {
-        text: 'Browser market shares in May, 2020'
-    },
-    tooltip: {
-        pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
-    },
-    accessibility: {
-        point: {
-            valueSuffix: '%'
-        }
-    },
-    plotOptions: {
-        pie: {
-            allowPointSelect: true,
-            cursor: 'pointer',
-            dataLabels: {
-                enabled: true,
-                format: '<b>{point.name}</b>: {point.percentage:.1f} %'
-            }
-        }
-    },
-    series: [{
-        name: 'Race',
-        colorByPoint: true,
-        data: [{
-            name: 'White',
-            y: 37.73,
-
-        }, {
-            name: 'Black',
-            y: 54.62
-        },  {
-            name: 'Hispanic/Latinx',
-            y: 4.37
-        }, {
-            name: 'Asian/Pacific Islander',
-            y: 0.26
-        }, {
-            name: 'Native American',
-            y: 0.08
-        },  {
-            name: 'Unidentifiable',
-            y: 2.93
-        }]
-    }]
-});

@@ -3,8 +3,8 @@
    "countyEx": "Allegheny",
    "white": 33.5249,
    "black": 62.45211,
-   "hispanic/latinx": 3.256705,
-   "asian/pacificIslander": 0.3831418,
+   "hispanicLatinx": 3.256705,
+   "asianPacificIslander": 0.3831418,
    "unidentifiable": 0.3831418,
    "nativeAmerican": 0
  },
@@ -12,8 +12,8 @@
    "countyEx": "Asheville",
    "white": 58.2878,
    "black": 34.60838,
-   "hispanic/latinx": 2.73224,
-   "asian/pacificIslander": 0,
+   "hispanicLatinx": 2.73224,
+   "asianPacificIslander": 0,
    "unidentifiable": 4.1894353,
    "nativeAmerican": 0.1821494
  },
@@ -21,8 +21,8 @@
    "countyEx": "Charlotte",
    "white": 12.70833,
    "black": 78.54167,
-   "hispanic/latinx": 4.166667,
-   "asian/pacificIslander": 0.2083333,
+   "hispanicLatinx": 4.166667,
+   "asianPacificIslander": 0.2083333,
    "unidentifiable": 4.375,
    "nativeAmerican": 0
  },
@@ -30,8 +30,8 @@
    "countyEx": "Fayetteville",
    "white": 24.51524,
    "black": 68.83657,
-   "hispanic/latinx": 3.462604,
-   "asian/pacificIslander": 0.1385042,
+   "hispanicLatinx": 3.462604,
+   "asianPacificIslander": 0.1385042,
    "unidentifiable": 2.7700831,
    "nativeAmerican": 0.2770083
  },
@@ -39,8 +39,8 @@
    "countyEx": "Henderson",
    "white": 77.4026,
    "black": 14.28571,
-   "hispanic/latinx": 5.974026,
-   "asian/pacificIslander": 0.5194805,
+   "hispanicLatinx": 5.974026,
+   "asianPacificIslander": 0.5194805,
    "unidentifiable": 1.8181818,
    "nativeAmerican": 0
  },
@@ -48,8 +48,8 @@
    "countyEx": "Huntersville",
    "white": 36.36364,
    "black": 51.65289,
-   "hispanic/latinx": 7.438017,
-   "asian/pacificIslander": 0.4132231,
+   "hispanicLatinx": 7.438017,
+   "asianPacificIslander": 0.4132231,
    "unidentifiable": 4.1322314,
    "nativeAmerican": 0
  },
@@ -57,8 +57,8 @@
    "countyEx": "Raleigh",
    "white": 22.59259,
    "black": 67.03704,
-   "hispanic/latinx": 5.555556,
-   "asian/pacificIslander": 0.3703704,
+   "hispanicLatinx": 5.555556,
+   "asianPacificIslander": 0.3703704,
    "unidentifiable": 4.4444444,
    "nativeAmerican": 0
  },
@@ -66,8 +66,8 @@
    "countyEx": "Wilmington",
    "white": 40.32,
    "black": 51.52,
-   "hispanic/latinx": 5.28,
-   "asian/pacificIslander": 0.32,
+   "hispanicLatinx": 5.28,
+   "asianPacificIslander": 0.32,
    "unidentifiable": 2.56,
    "nativeAmerican": 0
  }

@@ -66,3 +66,7 @@ h3{
   font-style: normal;
   font-size: 18px;
 }
+
+.thumbsClass{
+  filter: grayscale(70%);
+}
