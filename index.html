@@ -14,6 +14,7 @@
     <link href="css/c3.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://use.typekit.net/yvb7tej.css">
     <link href="css/spritesheet.css" rel="stylesheet">
+    <link href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap5.min.css" rel="stylesheet" />
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.css">
 
     <link href="css/styles.css" rel="stylesheet">
@@ -37,7 +38,9 @@
 
   </div>
     </div>
+<div class="row">
 
+</div>
 
 <div class="container">
   <div class="row">
@@ -59,28 +62,79 @@
       <p>
         Overwhelmingly Black people were disproportionally represented among the people who were represented in the Twitter feeds studied.
       </p>
-
+      <br />
 
 
       <div id="container" style="width:100%; height:400px;"></div>
-      <div id="chart2"></div>
+      <br />
+      <p>
+          Eight Twitter accounts were selected for analysis from across North Carolina based on varied population size and Twitter history: Allegheny, Asheville, Charlotte-Mecklenburg, Fayetteville, Henderson, Huntersville, Raleigh and Wilmington.
+      </p>
+      <p>
+        Images were scraped from the Twitter feeds using an API developer account and were then coded by two researchers for several demographic factors.
+      </p>
+      <p>
+        The results of this study found that Black people were particularly overrepresented in the images that were posted by the North Carolina law enforcement accounts studied. Of the eight accounts studies, for six of the accounts Black people comprised the majority of the people who were posted.
+      </p>
 
-
-      <h1>test</h1>
       <div id="chart3"></div>
 
-      <table id="tableId" class="display" width="100%"></table>
+      <p>
+        One aspect of this research important to consider is the context under which images are being posted. In the accounts studied, the departments used Twitter to post a broad range of information including promotional pictures, traffic, features on specific officers, etc. Images that were of police officers or promotion images were not included as data points in this study.
+      </p>
+      <p>
+        Three main categories of images were coded: mugshots, surveillance images, and missing persons alerts.
+      </p>
+      <p>
+        The purpose of this project is to primarily investigate whether there are disparities in the association of Black people with crime that could be derived from who is featured on law enforcement Twitter accounts. Missing persons alerts are interpreted by Twitter users differently than a general mugshot.
+      </p>
+
+      <p>
+        Still, overall there were not significant changes in the race data when missing person images are excluded from the study.
+      </p>
+      <p>
+        An argument could be made that some of the disparities present in the demographics of who is featured in the images of law enforcement Twitter accounts stems from the demographics of who is charged with crimes. Much research has been done that shows that Black people are disproportionately represented more in the justice system on the whole.
+      </p>
+      <p>
+        In order to judge the extent to which the demographics of the people posted on law enforcement Twitter accounts reflect the demographics of the people charged with crimes, ACIS data was consulted.
+      </p>
+      <p>
+        Data from the ACIS Criminal and Infraction Statistical Extract from the North Carolina Administrative Office of the Courts has information on all criminal charges from 2016 to 2020 by county.
+      </p>
+      <p>
+        While helpful, this data is an imperfect match for the specific jurisdictions studied in this report. Still, it provides general context for demographics of who is getting arrested and charged in North Carolina.
+      </p>
+      <div id="chart4"></div>
+      <p>
+          Regardless of limitations of the ACIS data, it is clear that the demographics of the people featured in the law enforcement Twitter accounts studied are not an exact reflection of who is charged with committing crimes. Not a single one of the accounts studied posted straight mugshots of every crime that was committed in its jurisdiction.
+         </p>
+
+      <p>
+        Overall, this study has found that there are racial disparities in the people that are featured on law enforcement Twitter accounts in North Carolina. These racial disparities are telling of the systematic racism ever present in the United States today and the problems Black men across the country face with being perceived as criminals.
+      </p>
+      <p>
+        There are so many facets of today’s modern society in which implicit and explicit biases and racism is forged that criminalizes Black people. The posts put out by police departments and sheriff offices on their social media is a strong, telling example of places where these biases manifest.
+      </p>
+
 
     </div>
     </div>
     <div class="col-md-2">  </div>
   </div>
+
 </div>
 
+<div class="col-md-12">
+  <div class="tableBox">
+    <h4>Table of Data Collected</h4>
+    <a href="https://github.com/skwebb73/independent-study/blob/main/Coding%20Manuel.pdf"><h5 class="link">Coding Manuel for Understanding the Data</h5></a>
+    <a href="https://github.com/skwebb73/independent-study"><h5 class="link">GitHub</h5></a>
+  <table id="tableId" class="display compact hover " width="100%"></table>
+</div>
 
-  <div class="col-md-12">
-    <!-- <div id="thumbs"></div> -->
-  </div>
+  <div id="thumbs"></div>
+</div>
+
 
 
 

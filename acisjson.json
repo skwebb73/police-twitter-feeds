@@ -1,0 +1,51 @@
+[
+ {
+   "Account": "Allegheny",
+   "acisBlack": 3.1,
+   "acisWhite": 71.4,
+   "acisHispanic": 19.1,
+   "popBlack": 1.8
+ },
+ {
+   "Account": "Asheville",
+   "acisBlack": 17.3,
+   "acisWhite": 72.7,
+   "acisHispanic": 7.5,
+   "popBlack": 11.2
+ },
+ {
+   "Account": "Charlotte",
+   "acisBlack": 58.3,
+   "acisWhite": 25.8,
+   "acisHispanic": 12.6,
+   "popBlack": 35.2
+ },
+ {
+   "Account": "Fayetteville",
+   "acisBlack": 59.3,
+   "acisWhite": 29.3,
+   "acisHispanic": 5.2,
+   "popBlack": 42.1
+ },
+ {
+   "Account": "Henderson",
+   "acisBlack": 11.3,
+   "acisWhite": 71.7,
+   "acisHispanic": 13.6,
+   "popBlack": 66.7
+ },
+ {
+   "Account": "Raleigh",
+   "acisBlack": 46.1,
+   "acisWhite": 34.2,
+   "acisHispanic": 11,
+   "popBlack": 29
+ },
+ {
+   "Account": "Wilmington",
+   "acisBlack": 27.2,
+   "acisWhite": 56.7,
+   "acisHispanic": 6.4,
+   "popBlack": 18.4
+ }
+]

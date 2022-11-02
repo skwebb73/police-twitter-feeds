@@ -9,12 +9,17 @@ var race = [];
 var finalCodes = [];
 var mediaUrl = [];
 var finalCodes2 =[];
+var acisWhite = [];
+var acisBlack = [];
+var acisHispanic = [];
+var popBlack = [];
 
 $(document).ready(function(){
   console.log("ready");
   loadData();
   loadData2();
   loadData3();
+  loadData4();
   });
 
 function loadData(){
@@ -71,6 +76,9 @@ function buildCharts(){
           categories: ['Allegheny', 'Asheville', 'Charlotte', 'Fayetteville', 'Henderson', 'Huntersville', 'Raleigh', 'Wilmington']
       }
   },
+  title: {
+    text:'Percent demographics of who each law enforcement account posted on Twitter'
+  },
 });
 
 }
@@ -98,58 +106,59 @@ function parseData2(raceTotals){
 function buildCharts2(){
   console.log("buildCharts2");
   const chart = Highcharts.chart('container', {
-      chart: {
-          plotBackgroundColor: null,
-          plotBorderWidth: null,
-          plotShadow: false,
-          type: 'pie'
-      },
-      title: {
-          text: 'Browser market shares in May, 2020'
-      },
-      tooltip: {
-          pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
-      },
-      accessibility: {
-          point: {
-              valueSuffix: '%'
-          }
-      },
-      plotOptions: {
-          pie: {
-              allowPointSelect: true,
-              cursor: 'pointer',
-              dataLabels: {
-                  enabled: true,
-                  format: '<b>{point.name}</b>: {point.percentage:.1f} %'
-              }
-          }
-      },
-      series: [{
-          name: 'Race',
-          colorByPoint: true,
-          data: [{
-              name: 'White',
-              y: 37.73,
+    chart: {
+        plotBackgroundColor: null,
+        plotBorderWidth: null,
+        plotShadow: false,
+        type: 'pie'
+    },
+    title: {
+        text: 'Total percent demographics by race of who was posted by N.C. law enforcement Twitter accounts studied'
+    },
+    tooltip: {
+        pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+    },
+    accessibility: {
+        point: {
+            valueSuffix: '%'
+        }
+    },
+    plotOptions: {
+        pie: {
+            allowPointSelect: true,
+            cursor: 'pointer',
+            dataLabels: {
+                enabled: true,
+                format: '<b>{point.name}</b>: {point.percentage:.1f} %'
+            }
+        }
+    },
+    series: [{
+    name: 'Race',
+    colorByPoint: true,
+    data: [{
+        name: 'White',
+        y: 37.73,
 
-          }, {
-              name: 'Black',
-              y: 54.62
-          },  {
-              name: 'Hispanic/Latinx',
-              y: 4.37
-          }, {
-              name: 'Asian/Pacific Islander',
-              y: 0.26
-          }, {
-              name: 'Native American',
-              y: 0.08
-          },  {
-              name: 'Unidentifiable',
-              y: 2.93
-          }]
-      }]
-  });
+    }, {
+        name: 'Black',
+        y: 54.62
+    },  {
+        name: 'Hispanic/Latinx',
+        y: 4.37
+    }, {
+        name: 'Asian/Pacific Islander',
+        y: 0.26
+    }, {
+        name: 'Native American',
+        y: 0.08
+    },  {
+        name: 'Unidentifiable',
+        y: 2.93
+    }]
+    }]
+});
+
 
 };
 
@@ -175,9 +184,9 @@ function parseData3(finalCodes){
     //race.push(raceTotals[index].race);
     mediaUrl.push(finalCodes[index].media_url);
     //console.log(mediaUrl);
-    if(index % 7){
+    if(index <910 ){
       tempCount ++
-    htmlThumbs += '<img class="thumbsClass" src="' + finalCodes[index].media_url + '" width="100" height="100" alt="portrait"/>';
+    htmlThumbs += '<img class="thumbsClass" src="' + finalCodes2[index].mediaUrl + '" width="100" height="100" alt="portrait"/>';
     }
 
 
@@ -190,11 +199,12 @@ console.log(tempCount);
   console.log(finalCodes2);
 console.log("pre dataTable()");
   $('#tableId').DataTable({
+          "scrollX": true,
           data: finalCodes2,
           columns: [
             {"data": 'date', title: 'Date'},
             {"data": 'account', title: 'Account'},
-            {"data": 'text', title: 'Text of Tweet'},
+            //{"data": 'text', title: 'Text of Tweet'},
             {"data": 'favoriteCount', title: 'Number of Likes'},
             {"data": 'retweetCount', title: 'Number of Retweets'},
             {"data": 'mediaType', title: "Type of Image"},
@@ -210,30 +220,68 @@ console.log("pre dataTable()");
             {"data": 'county', title: "County Name"},
             {"data": 'coder', title: "Researcher"},
           ],
-          // columns: [
-          //   {title: 'date'},
-          //   {title: 'Example'},
-          //   {title: 'Example'},
-          //   {title: 'Example'},
-          //   {title: 'Example'},
-          //   {title: 'Example'},
-          //   {title: 'Example'},
-          //   {title: 'Example'},
-          //   {title: 'Example'},
-          //   {title: 'Example'},
-          //   {title: 'Example'},
-          //   {title: 'Example'},
-          //   {title: 'Example'},
-          //   {title: 'Example'},
-          //   {title: 'Example'},
-          //   {title: 'Example'},
-          //   {title: 'Example'},
-          // ],
+
   });
 
 }
 
+//acis data
+function loadData4(){
 
+  $.getJSON("../acisjson.json", function (acis){
+    console.log(acis);
+    parseData4(acis);
+  })
+}
+
+function parseData4(acis){
+  //var html ="";
+  $.each(acis, function(index){
+    //console.log(acis[index].black);
+    //html += "<h2>"
+    acisWhite.push(acis[index].acisWhite);
+    acisBlack.push(acis[index].acisBlack);
+    acisHispanic.push(acis[index].acisHispanic);
+    popBlack.push(acis[index].popBlack);
+
+  });
+  buildCharts4();
+}
+
+function buildCharts4(){
+  //console.log("buildCharts");
+  var charttest = c3.generate({
+      bindto: '#chart4',
+     data: {
+        json: {
+          "White": acisWhite,
+          "Black": acisBlack,
+          "Hispanic": acisHispanic,
+          "Overall Black Population Percent": popBlack,
+
+        },
+
+        type: 'bar'
+    },
+    bar: {
+        width: {
+            ratio: 0.5 // this makes bar width 50% of length between ticks
+        }
+        // or
+        //width: 100 // this makes bar width 100px
+    },
+    axis: {
+      x: {
+          type: 'category',
+          categories: ['Allegheny', 'Asheville', 'Charlotte', 'Fayetteville', 'Henderson', 'Huntersville', 'Raleigh', 'Wilmington']
+      }
+  },
+  title: {
+    text:'Demographics by race of who was arrested by the law enforcement agencies in the time according to ACIS data'
+  },
+});
+
+}
 
 
 //$.ajax({

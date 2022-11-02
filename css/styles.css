@@ -2,7 +2,12 @@
 .position-sticky{
   position: sticky;
   top: 0;
-  z-index: 999;
+  z-index: 800;
+}
+
+.text-center{
+  background-color: black;
+  margin-top: 80px;
 }
 
 .header{
@@ -42,6 +47,8 @@
   font-style: normal;
   margin-top: 80px;
   text-align: center;
+  color: white;
+  background-color: black;
 }
 
 h2{
@@ -49,6 +56,8 @@ h2{
   font-weight: 400;
   font-style: italic;
   font-size: 20px;
+  color: white;
+  background-color: black;
 }
 
 h3{
@@ -57,6 +66,8 @@ h3{
   font-style: normal;
   margin-top: 20px;
   margin-bottom: 20px;
+  color: white;
+  background-color: black;
 }
 
 .main-text{
@@ -68,5 +79,59 @@ h3{
 }
 
 .thumbsClass{
-  filter: grayscale(70%);
+  filter: grayscale(90%);
+}
+
+#thumbs{
+  position: absolute;
+  margin-top: -7191px;
+  z-index: -999;
+}
+
+#tableId{
+    background-color: white;
+
+}
+
+.tableClass{
+  max-width: 400px;
+}
+
+p{
+  background-color: black;
+  color: white;
+  z-index: 1999;
+  padding: 10px;
+
+}
+
+#chart3{
+  background-color: white;
+
+}
+
+#chart4{
+  background-color: white;
+}
+
+.tableBox{
+  margin-left: 20px;
+  margin-right: 20px;
+  text-align: center;
+}
+
+h4{
+  margin-top: 50px;
+  font-family: bodoni-urw, serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 40px;
+}
+
+h5{
+  font-family: bodoni-urw, serif;
+  font-weight: 400;
+  font-style: italic;
+  font-size: 20px;
+  color: black;
 }
