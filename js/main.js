@@ -277,7 +277,7 @@ function buildCharts4(){
       }
   },
   title: {
-    text:'Demographics by race of who was arrested by the law enforcement agencies in the time according to ACIS data'
+    text:'Demographics by race of who was arrested by the law enforcement agencies studied according to ACIS data'
   },
 });
 

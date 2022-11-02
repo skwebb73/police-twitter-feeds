@@ -84,7 +84,7 @@ h3{
 
 #thumbs{
   position: absolute;
-  margin-top: -7191px;
+  margin-top: -7110px;
   z-index: -999;
 }
 
@@ -135,3 +135,26 @@ h5{
   font-size: 20px;
   color: black;
 }
+
+@media (max-width: 575.98px) {
+  .text-center{
+    background-color: transparent;
+    margin-top: 80px;
+  }
+
+  p{
+    margin-bottom: 150px;
+  }
+
+  #thumbs{
+    position: absolute;
+    margin-top: -31210px;
+    z-index: -999;
+  }
+
+  h4{
+    margin-top: -80px;
+
+  }
+
+ }
