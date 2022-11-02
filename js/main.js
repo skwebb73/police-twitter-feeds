@@ -24,7 +24,7 @@ $(document).ready(function(){
 
 function loadData(){
   console.log("loadData");
-  $.getJSON("../byCounty.json", function (byCounty){
+  $.getJSON("byCounty.json", function (byCounty){
     console.log(byCounty);
     parseData(byCounty);
   })
@@ -87,7 +87,7 @@ function buildCharts(){
 
 function loadData2(){
   console.log("loadData2");
-  $.getJSON("../race-totals.json", function (raceTotals){
+  $.getJSON("race-totals.json", function (raceTotals){
     console.log(raceTotals);
     parseData2(raceTotals);
   })
@@ -166,7 +166,7 @@ console.log("this worked");
 
 function loadData3(){
   console.log("loadData3");
-  $.getJSON("../finalcodes.json", function (finalCodes){
+  $.getJSON("finalcodes.json", function (finalCodes){
     //console.log(finalCodes);
     console.log(finalCodes)
     parseData3(finalCodes);
@@ -228,7 +228,7 @@ console.log("pre dataTable()");
 //acis data
 function loadData4(){
 
-  $.getJSON("../acisjson.json", function (acis){
+  $.getJSON("acisjson.json", function (acis){
     console.log(acis);
     parseData4(acis);
   })
@@ -282,184 +282,3 @@ function buildCharts4(){
 });
 
 }
-
-
-//$.ajax({
-//     dataType: "json",
-//     url: url,
-//     data: data,
-//     success: parseData
-
-
-
-
-
-//
-// var filesToLoad = [];
-// filesToLoad.push("../race-totals.json", "../byCounty.json");
-// var data;
-// var race =[];
-// var total =[];
-// var white = [];
-// var black = [];
-//
-// for(var i=0;i<filesToLoad.length; i++){
-//   loadData(filesToLoad[i]);
-// };
-//
-// function loadData(url){
-//   console.log(url);
-//   $.ajax({
-//     dataType: "json",
-//     url: url,
-//     data: data,
-//     success: parseData
-//   });
-// };
-//
-// function parseData(data){
-//     //console.log(data);
-//     //var html = "";
-//     $.each(data, function(index){
-//       //console.log(data[index].total);
-//       //console.log(index);
-//       race.push(data[index].race);
-//       total.push(data[index].total);
-//       white.push(data[index].white);
-//       black.push(data[index].black);
-//     });
-//     //$("#data").append(html);
-//     buildCharts();
-// }
-//
-// console.log("hi");
-// console.log(black);
-
-// function buildCharts(){
-//   //console.log(race);
-//   //console.log(total);
-//   var chart = c3.generate({
-//   data: {
-//       json: {
-//           //"Race": race,
-//           "Total": total
-//       },
-//       type : 'bar',
-//       onclick: function (d, i) { console.log("onclick", d, i); },
-//       onmouseover: function (d, i) { console.log("onmouseover", d, i); },
-//       onmouseout: function (d, i) { console.log("onmouseout", d, i); }
-//   }
-//
-//   });
-//
-// };
-//
-// function buildCharts(){
-//   var data = c3.generate({
-//     data:{
-//       json:{
-//         ""
-//       }
-//     }
-//   })
-// }
-
-
-
-//
-//
-//
-//
-// var race = [];
-// var total = [];
-//
-//
-// $(document).ready(function() {
-//   console.log("ready");
-//   loadData();
-// });
-//
-// function loadData(){
-//   $.getJSON("../race-totals.json", function(raceTotals){
-//     console.log(raceTotals);
-//     parseData(raceTotals );
-//   });
-// };
-//
-//
-// var chart = c3.generate({
-//     bindto: '#chart',
-//     data: {
-//       columns: [
-//         ['data1', 30, 200, 100, 400, 150, 250],
-//         ['data2', 50, 20, 10, 40, 15, 25]
-//       ]
-//     }
-// });
-
-//
-// function parseData(raceTotals){
-//   $("#data").append(html);
-//   buildCharts();
-// };
-//
-// function buildCharts(){
-//   var chart = c3.generate({
-//       data: {
-//           json: {
-//             "Race": race,
-//             "Percent": total
-//           },
-//           type: 'bar'
-//       },
-//       bar: {
-//           width: {
-//               ratio: 0.5 // this makes bar width 50% of length between ticks
-//           }
-//           // or
-//           //width: 100 // this makes bar width 100px
-//       }
-//   });
-// }
-//
-//
-// //Trying to do thumbnails
-// // function loadData(){
-// //   $.getJSON("../finalcodes.json", function(imgCodes){
-// //     console.log(imgCodes);
-// //     parseData(imgCodes );
-// //   });
-// // };
-// //
-// // function parseData(imgCodes){
-// //   var htmlThumbs = '';
-// //
-// //   htmlThumbs += '<img src="' + $(this).find("media_url").text() +'" width="100" height="100" alt="headshot"/>'
-// //
-// // }
-
-
-//testing high buildChartsdocument.addEventListener('DOMContentLoaded', function () {
-// const chart = Highcharts.chart('container', {
-//             chart: {
-//                 type: 'bar'
-//             },
-//             title: {
-//                 text: 'Fruit Consumption'
-//             },
-//             xAxis: {
-//                 categories: ['Apples', 'Bananas', 'Oranges']
-//             },
-//             yAxis: {
-//                 title: {
-//                     text: 'Fruit eaten'
-//                 }
-//             },
-//             series: [{
-//                 name: 'Jane',
-//                 data: [1, 0, 4]
-//             }, {
-//                 name: 'John',
-//                 data: [5, 7, 3]
-//             }]
-//         });
